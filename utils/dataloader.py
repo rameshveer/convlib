@@ -6,16 +6,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def dataloader(size, workers, cuda):
+def dataloader(size, workers, cuda, train_transform_param):
     
-    transform = transforms.Compose([transforms.ToTensor(),
+    train_transform = transforms.Compose([train_transform_param])
+    
+    test_transform = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
     
     trainset = datasets.CIFAR10(root='./data', train=True,
-                                                download=True, transform=transform)
+                                                download=True, transform=train_transform)
 
     testset = datasets.CIFAR10(root='./data', train=False,
-                                               download=True, transform=transform)
+                                               download=True, transform=test_transform)
 
     if cuda:
         size = size
