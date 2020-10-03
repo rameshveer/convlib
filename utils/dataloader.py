@@ -5,7 +5,7 @@ import torchvision.transforms as transforms
 
 class dataloader(DataLoader):
 
-    def dataloader(size=64, workers, cuda):
+    def dataloader(self,size=64, workers, cuda):
 
         trainset = datasets.CIFAR10(root='./data', train=True,
                                                 download=True, transform=transforms.transform)
