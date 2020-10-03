@@ -8,7 +8,7 @@ import numpy as np
 
 def dataloader(size, workers, cuda, train_transform_param):
     
-    train_transform = transforms.Compose([train_transform_param])
+    train_transform = transforms.Compose([transforms.ToTensor(), train_transform_param])
     
     test_transform = transforms.Compose([transforms.ToTensor(),
                                 transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
