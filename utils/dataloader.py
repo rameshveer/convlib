@@ -8,11 +8,6 @@ import numpy as np
 
 def dataloader(size, workers, cuda):
 
-    trainset = datasets.CIFAR10(root='./data', train=True,
-                                                download=True, transform=transforms.transform)
-    testset = datasets.CIFAR10(root='./data', train=False,
-                                               download=True, transform=transforms.transform)
-
     if cuda:
         size = size
     else:
