@@ -5,7 +5,7 @@ import torchvision.transforms as transforms
 
 class dataloader(DataLoader):
 
-    def dataloader(size, workers, cuda):
+    def dataloader(size=64, workers, cuda):
 
         trainset = datasets.CIFAR10(root='./data', train=True,
                                                 download=True, transform=transforms.transform)
@@ -13,9 +13,9 @@ class dataloader(DataLoader):
                                                download=True, transform=transforms.transform)
 
         if cuda:
-            size = 128
+            size = size
         else:
-            size = 64
+            size = size
 
         dataloader_args = dict(shuffle=True, batch_size=size, num_workers=workers)
 
